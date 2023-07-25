@@ -1,0 +1,81 @@
+C++ Interview Questions Arrays:
+1.What is an array in C++?
+
+In C++, an array is a data structure that allows you to store a fixed-size sequence of elements of the same data type. It provides a contiguous block of memory to store these elements, and each element is accessed using an index. Arrays are fundamental data structures in programming and are used to store collections of data in a compact and efficient manner.
+
+The general syntax for declaring an array in C++ is:
+
+dataType arrayName[arraySize];
+
+2. Can you change the size of an array once it is declared?
+
+No, the size of an array in C++ is fixed at the time of declaration and cannot be changed during the program's execution.
+
+
+3. Question: How do you access elements of an array in C++?
+
+Array elements can be accessed using their index, which starts from 0.
+
+Example:
+int numbers[] = {10, 20, 30, 40, 50};
+int thirdElement = numbers[2]; // Accesses the third element with index 2 (30)
+
+
+4.Write a C++ function to find the sum of elements in an integer array?
+
+int sumArray(int arr[], int size) { 
+int sum = 0; 
+for (int i = 0; i < size; i++) {
+ sum += arr[i];
+ } 
+return sum;
+ }
+int numbers[] = {1, 2, 3, 4, 5};
+int length = sizeof(numbers) / sizeof(numbers[0]);
+int result = sumArray(numbers, length);
+
+
+
+
+5.How do you find the largest element in an array in C++?
+
+int findMax(int arr[], int size) {
+    int maxVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+int numbers[] = {15, 30, 10, 45, 25};
+int length = sizeof(numbers) / sizeof(numbers[0]);
+int maxElement = findMax(numbers, length); // maxElement will be 45
+
+6.How do you reverse the elements of an array in C++?
+
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size - 1;
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+int numbers[] = {1, 2, 3, 4, 5};
+int length = sizeof(numbers) / sizeof(numbers[0]);
+reverseArray(numbers, length); // numbers will be {5, 4, 3, 2, 1}
+
+
+7.What happens if you access an array element with an index out of its bounds?
+
+Accessing an array element with an index that is out of its bounds leads to undefined behavior, which means the program's behavior is unpredictable. It may crash or produce incorrect results.
+
+int numbers[] = {10, 20, 30, 40, 50};
+int invalidIndex = numbers[10]; // Accessing index 10, which is out of bounds
+
