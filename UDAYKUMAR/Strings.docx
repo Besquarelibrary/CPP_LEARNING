@@ -1,0 +1,257 @@
+Strings Interview questions:
+
+Sure! Here are some common C++ string interview questions along with their answers:
+
+1. What is the difference between C-style strings and C++ strings?
+C-style strings are arrays of characters terminated with a null character (`'\0'`), while C++ strings are objects of the `std::string` class that can dynamically grow and shrink.
+   
+2. How do you create a C++ string?
+To create a C++ string, you can use the `std::string` class, either by initializing it with a character array or using the constructor with a string literal.
+
+      #include <string>
+      // Using a character array
+      char charArray[] = "Hello";
+      std::string cppString(charArray);
+      
+      // Using a string literal
+      std::string cppString = "Hello";
+ 
+
+3. How do you find the length of a C++ string?
+You can find the length of a C++ string using the `length()` or `size()` member functions.
+   
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str = "Hello";
+          std::cout << "Length of the string: " << str.length() << std::endl;
+          return 0;
+      }
+
+
+4. How can you concatenate two C++ strings?
+You can concatenate two C++ strings using the `+` operator or the `append()` member function.
+ 
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str1 = "Hello";
+          std::string str2 = " World";
+          
+          // Using + operator
+          std::string concatenated = str1 + str2;
+          std::cout << concatenated << std::endl;
+          
+          // Using append()
+          str1.append(str2);
+          std::cout << str1 << std::endl;
+          
+          return 0;
+      }
+
+
+5. How do you compare two C++ strings?
+ You can compare two C++ strings using the `==` operator, or you can use the `compare()` member function, which returns 0 if the strings are equal.
+
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str1 = "Hello";
+          std::string str2 = "World";
+          
+          // Using ==
+          if (str1 == str2) {
+              std::cout << "The strings are equal." << std::endl;
+          } else {
+              std::cout << "The strings are not equal." << std::endl;
+          }
+          
+          // Using compare()
+          int result = str1.compare(str2);
+          if (result == 0) {
+              std::cout << "The strings are equal." << std::endl;
+          } else {
+              std::cout << "The strings are not equal." << std::endl;
+          }
+          
+          return 0;
+      }
+
+
+6. How do you convert a C++ string to a C-style string (character array)?
+ You can convert a C++ string to a C-style string using the `c_str()` member function.
+
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string cppString = "Hello";
+          const char* cString = cppString.c_str();
+          std::cout << "C-style string: " << cString << std::endl;
+          
+          return 0;
+      }
+
+
+7. How do you extract a substring from a C++ string?
+ You can use the `substr()` member function to extract a substring from a C++ string.
+
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str = "Hello, World!";
+          std::string sub = str.substr(7, 5); // Extracts "World"
+          std::cout << sub << std::endl;
+          
+          return 0;
+      }
+
+8. How can you find a character or substring within a C++ string?
+You can use the `find()` member function to find a character or substring within a C++ string. It returns the position of the first occurrence of the searched string, or `std::string::npos` if not found.
+   
+
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str = "Hello, World!";
+          size_t found = str.find("World");
+          if (found != std::string::npos) {
+              std::cout << "Substring found at position: " << found << std::endl;
+          } else {
+              std::cout << "Substring not found." << std::endl;
+          }
+          
+          return 0;
+      }
+
+
+
+9. How do you convert a string to uppercase or lowercase in C++?
+You can convert a C++ string to uppercase or lowercase using the `std::transform()` function along with the `std::toupper()` or `std::tolower()` functions from the `<cctype>` header.
+   
+   
+      #include <iostream>
+      #include <string>
+      #include <cctype> // For std::toupper() and std::tolower()
+      
+      int main() {
+          std::string str = "Hello, World!";
+          
+          // Convert to uppercase
+          std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+          std::cout << "Uppercase: " << str << std::endl;
+          
+          // Convert to lowercase
+          std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+          std::cout << "Lowercase: " << str << std::endl;
+          
+          return 0;
+      }
+
+
+10. How do you remove leading and trailing spaces from a C++ string?
+ You can use the `std::string` member functions `find_first_not_of()` and `find_last_not_of()` to remove leading and trailing spaces, respectively.
+    
+
+      #include <iostream>
+      #include <string>
+      
+      int main() {
+          std::string str = "   Hello, World!   ";
+          
+          // Remove leading spaces
+          size_t start = str.find_first_not_of(" ");
+          if (start != std::string::npos) {
+              str = str.substr(start);
+          }
+          
+          // Remove trailing spaces
+          size_t end = str.find_last_not_of(" ");
+          if (end != std::string::npos) {
+              str = str.substr(0, end + 1);
+          }
+          
+          std::cout << "String after removing leading and trailing spaces: " << str << std::endl;
+          
+          return 0;
+      }
+
+
+11. How do you reverse a C++ string in place?
+You can use the `std::reverse()` function from the `<algorithm>` header to reverse a C++ string in place.
+    
+
+      #include <iostream>
+      #include <string>
+      #include <algorithm> // For std::reverse()
+      
+      int main() {
+          std::string str = "Hello, World!";
+          
+          // Reverse the string in place
+          std::reverse(str.begin(), str.end());
+          
+          std::cout << "Reversed string: " << str << std::endl;
+          
+          return 0;
+      }
+
+
+
+12. How do you check if a C++ string is a palindrome?
+You can check if a C++ string is a palindrome by comparing the characters from the beginning with the corresponding characters from the end.
+    
+   
+      #include <iostream>
+      #include <string>
+      
+      bool isPalindrome(const std::string& str) {
+          int i = 0;
+          int j = str.length() - 1;
+          while (i < j) {
+              if (str[i] != str[j]) {
+                  return false;
+              }
+              i++;
+              j--;
+          }
+          return true;
+      }
+      
+      int main() {
+          std::string str = "radar";
+          if (isPalindrome(str)) {
+              std::cout << "It's a palindrome!" << std::endl;
+          } else {
+              std::cout << "It's not a palindrome." << std::endl;
+          }
+          
+          return 0;
+      }
+
+
+13. How do you split a C++ string into tokens?
+You can use the `std::istringstream` along with the `>>` extraction operator to split a C++ string into tokens based on a delimiter.
+ 
+      #include <iostream>
+      #include <string>
+      #include <sstream> // For std::istringstream
+      
+      int main() {
+          std::string str = "apple orange banana";
+          std::istringstream iss(str);
+          std::string token;
+          
+          while (iss >> token) {
+              std::cout << token << std::endl;
+          }
+          
+          return 0;
+      }
+
+

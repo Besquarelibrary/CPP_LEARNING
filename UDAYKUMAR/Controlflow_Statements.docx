@@ -1,0 +1,110 @@
+Control Statements:
+
+
+1. What are control statements in C++?
+   Control statements in C++ are used to control the flow of a program's execution based on certain conditions. They allow you to make decisions and repeat a block of code multiple times.
+
+2. What is the difference between if-else and switch statements?
+   - `if-else` statements allow you to make decisions based on boolean expressions (true or false). You can have multiple conditions and the code associated with the first true condition will be executed.
+   - `switch` statements are used to make decisions based on the value of an expression. You can have multiple cases, and the code associated with the matching case will be executed. `switch` is suitable when there are many distinct values to check against a single variable.
+
+3. Explain the ternary conditional operator (`?:`) in C++?
+ The ternary conditional operator is a shorthand way of writing an `if-else` statement with a single expression. Its syntax is: `condition ? expression_if_true : expression_if_false`. If the `condition` is true, the expression after `?` is evaluated, otherwise, the expression after `:` is evaluated.
+
+4. What are the different loop types in C++?
+   C++ supports three loop types:
+   - `for` loop: Used for iterating over a range of values with a known number of iterations.
+   - `while` loop: Used for iterating until a certain condition is met.
+   - `do-while` loop: Similar to the `while` loop, but it executes the code block at least once before checking the condition.
+
+5. Write a C++ program to print all even numbers from 1 to N using a `for` loop.
+
+   #include <iostream>
+   
+   int main() {
+       int N;
+       std::cout << "Enter the value of N: ";
+       std::cin >> N;
+       
+       for (int i = 2; i <= N; i += 2) {
+           std::cout << i << " ";
+       }
+       
+       return 0;
+   }
+
+
+6. Write a C++ program to find the factorial of a number using a `while` loop.
+   
+   #include <iostream>
+   
+   int main() {
+       int N;
+       std::cout << "Enter a number: ";
+       std::cin >> N;
+       
+       int factorial = 1;
+       int i = 1;
+       
+       while (i <= N) {
+           factorial *= i;
+           i++;
+       }
+       
+       std::cout << "Factorial of " << N << " is: " << factorial << std::endl;
+       
+       return 0;
+   }
+
+7. Write a C++ program to sum the digits of a number using a `do-while` loop.
+
+   #include <iostream>
+   
+   int main() {
+       int number, sum = 0;
+       std::cout << "Enter a number: ";
+       std::cin >> number;
+       
+       do {
+           sum += number % 10;
+           number /= 10;
+       } while (number > 0);
+       
+       std::cout << "Sum of digits: " << sum << std::endl;
+       
+       return 0;
+   }
+
+
+8. Explain the `break` and `continue` statements in C++.
+   - `break`: It is used to terminate the execution of the innermost loop and continue with the next statement after the loop.
+   - `continue`: It is used to skip the current iteration of the loop and continue with the next iteration.
+
+9. What is the difference between a `while` loop and a `do-while` loop?
+   - `while` loop checks the condition before executing the loop's body, so the loop may not execute at all if the condition is false from the beginning.
+   - `do-while` loop executes the loop's body at least once before checking the condition, ensuring the loop is executed at least once regardless of the condition.
+
+10. Write a C++ program to find the largest element in an array using a `for` loop.
+
+    #include <iostream>
+    
+    int main() {
+        const int size = 5;
+        int arr[size];
+        std::cout << "Enter " << size << " elements: ";
+        for (int i = 0; i < size; i++) {
+            std::cin >> arr[i];
+        }
+        
+        int maxElement = arr[0];
+        for (int i = 1; i < size; i++) {
+            if (arr[i] > maxElement) {
+                maxElement = arr[i];
+            }
+        }
+        
+        std::cout << "Largest element in the array: " << maxElement << std::endl;
+        
+        return 0;
+    }
+
